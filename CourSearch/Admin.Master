@@ -1,0 +1,277 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="CourSearch.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+        <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+
+    <title>Admin|Dashboard </title>
+
+     <meta name="robots" content="noindex">
+
+     <!-- Simplebar -->
+    <link type="text/css" href="`/assets/vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+     <!-- Vendor CSS -->
+    <link rel="stylesheet" href="../cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/datatables.css">
+
+      <!-- Required by summernote -->
+    <link rel="stylesheet" href="../cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
+    <!-- Summernote WYSIWYG -->
+    <link rel="stylesheet" href="assets/css/summernote.css">
+    <!-- Nestable -->
+    <link rel="stylesheet" href="assets/css/nestable.css">
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    
+    <body>
+ 
+    <div class="d-flex flex-column h-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+            <!-- Toggle sidebar -->
+            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+    <span class="material-icons">menu</span>
+  </button>
+
+            <!-- Brand -->
+            <a href="Home.aspx" class="navbar-brand"><i class="material-icons">school</i> CourSearch</a>
+
+           <!-- Search -->
+             <div class="navbar-search-form">
+             <input type="text" class="form-control" placeholder="Search" id="searchtextbox"> <button class="btn" type="button" onclick="search();"><i class="material-icons">search</i></button>
+             </div>
+            <!-- // END Search -->
+
+            <div class="navbar-spacer"></div>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav d-none d-md-flex">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="Admin-EditAccount.aspx">Edit Account</a>
+            </li>
+               
+                            <form runat="server">
+
+            <li class="nav-item">
+                <asp:LinkButton ID="LinkButton1" class="nav-link"   href="Login.aspx" OnClick="Logout_Click" runat="server">Logout</asp:LinkButton>
+            </li>
+                 
+        </ul>
+
+          
+
+        </nav>
+        <!-- // END Navbar -->
+        
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-fullbleed data-push data-has-scrolling-region>
+            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                <div class="container-fluid">
+                    
+  <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+    </asp:ContentPlaceHolder></form>
+                 
+
+                </div>
+
+                 
+            </div>
+
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                <div class="mdk-drawer__content ">
+                    <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up o-hidden">
+                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+                            <div class="sidebar-heading">Admin</div>
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Admin-Users.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>Manage Users
+            </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Admin-Courses.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">chrome_reader_mode</i>Manage Courses
+            </a>
+                                </li>
+
+                                 <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Admin-Enrollments.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">trending_up</i>Enrollments Report
+            </a>
+                                </li>
+                                 <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Admin-AllCourses.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i>Courses Report
+            </a>
+                                </li>
+
+                             
+                            </ul>
+                           <%-- <!-- Components menu -->
+                            <div class="sidebar-heading">UI Components</div>
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item open">
+                                    <a class="sidebar-menu-button sidebar-js-collapse" data-toggle="collapse" href="#ui-components">
+      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">tune</i> 
+      UI Components
+      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+    </a>
+                                    <ul class="sidebar-submenu sm-condensed collapse show" id="ui-components">
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+                                        </li>
+                                        <li class="sidebar-menu-item active">
+                                            <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- // END Components Menu -->--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Simplebar -->
+    <!-- Used for adding a custom scrollbar to the drawer -->
+    <script src="assets/vendor/simplebar.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- Sidebar Collapse -->
+    <script src="assets/vendor/sidebar-collapse.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/main.js"></script>
+
+
+        
+    <!-- Vendor JS -->
+    <script src="assets/vendor/jquery.dataTables.js"></script>
+    <script src="assets/vendor/dataTables.bootstrap.js"></script>
+    <script src="assets/vendor/summernote.min.js"></script>
+    <script src="assets/vendor/bootstrap-datepicker.min.js"></script>
+    <script src="assets/vendor/jquery.nestable.js"></script>
+
+
+
+    <!-- Init -->
+    <script src="assets/js/summernote.js"></script>
+    <script src="assets/js/date-time.js"></script>
+    <script src="assets/js/nestable.js"></script>
+
+
+    <!-- Initialize -->
+    <script src="assets/js/datatables.js"></script>
+
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/sweetalert.min.js"></script>
+
+
+
+    <!-- Initialize -->
+    <script src="assets/js/sweetalert.js"></script>
+
+         <!-- searching courses-->
+    <script type="text/javascript">
+        function search() {
+            window.location = "Admin-Courses.aspx?Search=" + document.getElementById("searchtextbox").value;
+        }
+    </script>
+
+
+<%--         <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem soluta aspernatur qui, sint eius laboriosam ratione iure fugit voluptate sit temporibus quod dolore possimus rem ipsam eos eaque dignissimos enim.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+
+</body>
+
+
+
+
+</html>

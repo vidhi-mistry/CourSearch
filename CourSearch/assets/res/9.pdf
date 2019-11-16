@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<graphics.h>
+double distance(int,int,double,double,int,int);
+void main(){
+ int gd=DETECT,gm;
+ int x1,x2,y1,y2,px,py;
+ double dx,dy;
+ float m,c;
+ double d;
+ initgraph(&gd,&gm,"..//BGI");
+ printf("Enter coordinates x1,y1,x2,y2: ");
+ scanf("%d %d %d %d",&x1,&y1,&x2,&y2);
+ printf("\nEnter coordinates of the point: ");
+ scanf("%d %d",&px,&py);
+ x1=320+x1;
+ y1=240-y1;
+ x2=320+x2;
+ y2=240-y2;
+ px=320+px;
+ py=240-py;
+ dx=x2-x1;
+ dy=y1-y2;
+
+ setcolor(MAGENTA);
+ line(320,0,320,480);
+ line(0,240,640,240);
+ setcolor(WHITE);
+ line(x1,y1,x2,y2);
+ putpixel(px,py,MAGENTA);
+ d=distance(x2,y2,dx,dy,px,py);
+ printf("\nDistance of %d,%d from the given line is: %lf",px-320,240-py,d);
+ getch();
+ closegraph();
+
+}
+double distance(int x,int y,double dx,double dy,int px,int py){
+ double g;
+ double m;
+ double r;
+ double bc;
+ if(dx==0 && dy!=0){
+   if(x>px){return x-px;}
+   if(px>=x){return px-x;}
+ }
+ if(dy==0 && dx!=0){
+   if(y>py){return y-py;}
+   if(py>=y){return py-y;}
+ }
+ if(dy!=0 && dx!=0){
+ printf("\ndx=%lf,dy=%lf",dx,dy);
+ m=dy/dx;
+ printf("\nm=%lf",m);
+ g=y-m*x;
+ printf("\ng=%lf",g);
+ if(m<0){r=-m;}
+ else{r=m;}
+ r=sqrt(1+r*r);
+ printf("\nr=%lf",r);
+ bc=(py-m*px-g)/r;
+ printf("\nbc=%lf",bc);
+ return bc;
+ }
+ else{
+ return 0;
+ }
+}

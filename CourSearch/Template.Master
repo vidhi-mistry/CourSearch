@@ -1,0 +1,201 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Template.Master.cs" Inherits="CourSearch.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+        <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+
+    <title>Student|Dashboard </title>
+
+     <meta name="robots" content="noindex">
+
+     <!-- Simplebar -->
+    <link type="text/css" href="`/assets/vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body runat="server">
+   
+    <div class="d-flex flex-column h-100">
+        
+            <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+            <!-- Toggle sidebar -->
+            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+    <span class="material-icons">menu</span>
+  </button>
+
+            <!-- Brand -->
+            <a href="Home.aspx" class="navbar-brand"><i class="material-icons">school</i>CourSearch</a>
+
+            <!-- Search -->
+          <%--  <form class="navbar-search-form d-none d-md-flex">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn" type="button"><i class="material-icons">search</i></button>
+            </form>--%>
+            <!-- // END Search -->
+
+            <div class="navbar-spacer"></div>
+
+            <!-- Menu -->
+           <%-- <ul class="nav navbar-nav d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-forum.html">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-help-center.html">Get Help</a>
+                </li>
+            </ul>--%>
+
+           <!-- Menu -->
+        <ul class="nav navbar-nav">
+
+            <li class="nav-item">
+                <a href="Student-EditAccount.aspx" class="nav-link">
+                           <asp:Label ID="UserName" runat="server" ></asp:Label></a>
+
+            </li>
+            <form runat="server">
+           
+            <!-- User dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                    <asp:Image ID="avatar" runat="server" alt="Avatar" class="rounded-circle"  width="40" />
+                    <%--<img src="assets/images/people/110/default.jpg" alt="Avatar" class="rounded-circle"  width="40"> /--%>
+                
+              <div class="dropdown-menu dropdown-menu-right">
+                    <asp:LinkButton ID="EditAccount" PostBackUrl="~/Student-EditAccount.aspx" class="dropdown-item" runat="server"> <i class="material-icons">edit</i> Edit Account</asp:LinkButton>
+<%--                   <asp:LinkButton ID="PublicProfile" class="dropdown-item" runat="server"> <i class="material-icons">person</i> Public Profile</asp:LinkButton>--%>
+                      <asp:LinkButton ID="Logout" class="dropdown-item" runat="server" CausesValidation="false" OnClick="Logout_Click"> <i class="material-icons">lock</i> Logout</asp:LinkButton>
+                    <%--<a class="dropdown-item" href="#">
+      <i class="material-icons">person</i> Public Profile
+    </a>
+                    <a class="dropdown-item" href="Login.aspx">
+      <i class="material-icons">lock</i> Logout
+    </a>--%>
+                </div>
+            </li>
+            <!-- // END User dropdown -->
+
+        </ul>
+        <!-- // END Menu -->
+
+        </nav>
+        <!-- // END Navbar -->
+       
+       
+        <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region >
+            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable" style="background:#eeeeee">
+
+               <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server"></asp:ContentPlaceHolder>
+          </form>
+          
+                
+            
+            </div>
+
+
+
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                <div class="mdk-drawer__content ">
+                    <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up o-hidden">
+                        <div class="sidebar-p-y" data-simplebar="init" data-simplebar-force-enabled="true">
+
+
+
+                            <div class="sidebar-heading">Student</div>
+                            <ul class="sidebar-menu">
+                                
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Student-Home.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">home</i> My Dashboard
+            </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Home.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">search</i> Browse Courses
+            </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Student-MyCourses.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i> My Courses
+            </a>
+                                </li>
+                               
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="Student-EditAccount.aspx">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">create</i>Edit Account
+            </a>
+                                </li>
+                               <%-- <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="student-view-course.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">import_contacts</i> View Course
+            </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="student-take-course.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">class</i> Take Course 
+              <span class="sidebar-menu-badge badge badge-default ml-auto">PRO</span>
+            </a>
+                                </li>--%>
+                             
+                                
+                            </ul>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      
+           </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Simplebar -->
+    <!-- Used for adding a custom scrollbar to the drawer -->
+    <script src="assets/vendor/simplebar.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- Sidebar Collapse -->
+    <script src="assets/vendor/sidebar-collapse.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/main.js"></script>
+
+      
+
+
+</body>
+
+</html>

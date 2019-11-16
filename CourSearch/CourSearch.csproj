@@ -1,0 +1,516 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13CFE92D-6DE3-4790-A3D5-D8B3532CA7D0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CourSearch</RootNamespace>
+    <AssemblyName>CourSearch</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin-EditAccount.aspx" />
+    <Content Include="Admin-Transactions.aspx" />
+    <Content Include="App_Data\CourSearch.mdf" />
+    <Content Include="App_Data\CourSearch_log.ldf">
+      <DependentUpon>CourSearch.mdf</DependentUpon>
+    </Content>
+    <Content Include="assets\css\bootstrap-datepicker.css" />
+    <Content Include="assets\css\bootstrap-timepicker.css" />
+    <Content Include="assets\css\bootstrap-touchspin.css" />
+    <Content Include="assets\css\datatables.css" />
+    <Content Include="assets\css\dropzone.css" />
+    <Content Include="assets\css\fancytree.css" />
+    <Content Include="assets\css\fullcalendar.css" />
+    <Content Include="assets\css\jvectormap.css" />
+    <Content Include="assets\css\morris.css" />
+    <Content Include="assets\css\nestable.css" />
+    <Content Include="assets\css\nouislider.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\summernote.css" />
+    <Content Include="assets\css\sweetalert.css" />
+    <Content Include="assets\data\vector-maps\custom\jquery-jvectormap-de-merc-en.js" />
+    <Content Include="assets\data\vector-maps\custom\jquery-jvectormap-es-merc-en.js" />
+    <Content Include="assets\data\vector-maps\custom\jquery-jvectormap-fr-merc-en.js" />
+    <Content Include="assets\data\vector-maps\custom\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="assets\data\vector-maps\custom\jquery-jvectormap-us-lcc-en.js" />
+    <Content Include="assets\data\vector-maps\custom\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="assets\data\vector-maps\custom\mall-map.js" />
+    <Content Include="assets\data\vector-maps\data\gdp-data.js" />
+    <Content Include="assets\images\github.png" />
+    <Content Include="assets\images\gulp.png" />
+    <Content Include="assets\images\nodejs.png" />
+    <Content Include="assets\images\people\110\guy-2.jpg" />
+    <Content Include="assets\images\people\110\guy-6.jpg" />
+    <Content Include="assets\images\people\110\guy-8.jpg" />
+    <Content Include="assets\images\people\110\guy-9.jpg" />
+    <Content Include="assets\images\people\110\woman-5.jpg" />
+    <Content Include="assets\images\people\50\guy-2.jpg" />
+    <Content Include="assets\images\people\50\guy-4.jpg" />
+    <Content Include="assets\images\people\50\guy-5.jpg" />
+    <Content Include="assets\images\people\50\guy-6.jpg" />
+    <Content Include="assets\images\people\50\guy-7.jpg" />
+    <Content Include="assets\images\people\50\guy-8.jpg" />
+    <Content Include="assets\images\people\50\woman-2.jpg" />
+    <Content Include="assets\images\people\50\woman-5.jpg" />
+    <Content Include="assets\images\vuejs.png" />
+    <Content Include="assets\js\chart.js" />
+    <Content Include="assets\js\chartjs.js" />
+    <Content Include="assets\js\colors.js" />
+    <Content Include="assets\js\countdown.js" />
+    <Content Include="assets\js\datatables.js" />
+    <Content Include="assets\js\date-time.js" />
+    <Content Include="assets\js\fancytree.js" />
+    <Content Include="assets\js\fullcalendar.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\nestable.js" />
+    <Content Include="assets\js\slider.js" />
+    <Content Include="assets\js\summernote.js" />
+    <Content Include="assets\js\sweetalert.js" />
+    <Content Include="assets\js\touchspin.js" />
+    <Content Include="assets\js\vector-maps.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker.min.js" />
+    <Content Include="assets\vendor\bootstrap-timepicker.js" />
+    <Content Include="assets\vendor\bootstrap.min.js" />
+    <Content Include="assets\vendor\Chart.min.js" />
+    <Content Include="assets\vendor\dataTables.bootstrap.js" />
+    <Content Include="assets\vendor\dom-factory.js" />
+    <Content Include="assets\vendor\dropzone.min.css" />
+    <Content Include="assets\vendor\dropzone.min.js" />
+    <Content Include="assets\vendor\fullcalendar.min.js" />
+    <Content Include="assets\vendor\jquery-jvectormap.css" />
+    <Content Include="assets\vendor\jquery.bootstrap-touchspin.js" />
+    <Content Include="assets\vendor\jquery.countdown.min.js" />
+    <Content Include="assets\vendor\jquery.dataTables.js" />
+    <Content Include="assets\vendor\jquery.fancytree-all.min.js" />
+    <Content Include="assets\vendor\jquery.jvectormap.min.js" />
+    <Content Include="assets\vendor\jquery.min.js" />
+    <Content Include="assets\vendor\jquery.nestable.js" />
+    <Content Include="assets\vendor\material-design-kit.css" />
+    <Content Include="assets\vendor\material-design-kit.js" />
+    <Content Include="assets\vendor\moment-range.min.js" />
+    <Content Include="assets\vendor\moment.min.js" />
+    <Content Include="assets\vendor\morris.min.js" />
+    <Content Include="assets\vendor\nouislider.min.css" />
+    <Content Include="assets\vendor\nouislider.min.js" />
+    <Content Include="assets\vendor\popper.min.js" />
+    <Content Include="assets\vendor\raphael.min.js" />
+    <Content Include="assets\vendor\sidebar-collapse.js" />
+    <Content Include="assets\vendor\sidebar-collapse.min.css" />
+    <Content Include="assets\vendor\simplebar.css" />
+    <Content Include="assets\vendor\simplebar.js" />
+    <Content Include="assets\vendor\summernote.min.js" />
+    <Content Include="assets\vendor\sweetalert.min.js" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="EditAccount.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="guest-login.html" />
+    <Content Include="guest-signup.html" />
+    <Content Include="Login.aspx" />
+    <Content Include="ResetPassword.aspx" />
+    <Content Include="Signup.aspx" />
+    <Content Include="vendor\adminplus.css" />
+    <Content Include="vendor\bootstrap.min.js" />
+    <Content Include="vendor\jquery.min.js" />
+    <Content Include="vendor\tether.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Student-Home.aspx" />
+    <Content Include="Student-EditAccount.aspx" />
+    <Content Include="ViewCourse.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Admin-Home.aspx" />
+    <Content Include="Admin-Users.aspx" />
+    <Content Include="Admin-Courses.aspx" />
+    <Content Include="Admin-Lessons.aspx" />
+    <Content Include="Admin-DeleteCourse.aspx" />
+    <Content Include="Admin-AddCourse.aspx" />
+    <Content Include="Admin-EditCourse.aspx" />
+    <Content Include="AddCourse.aspx" />
+    <Content Include="Admin-EditLesson.aspx" />
+    <Content Include="Admin-AddLesson.aspx" />
+    <Content Include="Admin-DeleteLesson.aspx" />
+    <Content Include="Student-MyClassroom.aspx" />
+    <Content Include="Admin-Enrollments.aspx" />
+    <Content Include="Student-MyCourses.aspx" />
+    <Content Include="Admin-AllCourses.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin-EditAccount.aspx.cs">
+      <DependentUpon>Admin-EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-EditAccount.aspx.designer.cs">
+      <DependentUpon>Admin-EditAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-Transactions.aspx.cs">
+      <DependentUpon>Admin-Transactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Transactions.aspx.designer.cs">
+      <DependentUpon>Admin-Transactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccount.aspx.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAccount.aspx.designer.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myreport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Template.Master.cs">
+      <DependentUpon>Template.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template.Master.designer.cs">
+      <DependentUpon>Template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Student-Home.aspx.cs">
+      <DependentUpon>Student-Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student-Home.aspx.designer.cs">
+      <DependentUpon>Student-Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student-EditAccount.aspx.cs">
+      <DependentUpon>Student-EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student-EditAccount.aspx.designer.cs">
+      <DependentUpon>Student-EditAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="allcourse.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>allcourse.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="trns.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>trns.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewCourse.aspx.cs">
+      <DependentUpon>ViewCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCourse.aspx.designer.cs">
+      <DependentUpon>ViewCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-Home.aspx.cs">
+      <DependentUpon>Admin-Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Home.aspx.designer.cs">
+      <DependentUpon>Admin-Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-Users.aspx.cs">
+      <DependentUpon>Admin-Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Users.aspx.designer.cs">
+      <DependentUpon>Admin-Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-Courses.aspx.cs">
+      <DependentUpon>Admin-Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Courses.aspx.designer.cs">
+      <DependentUpon>Admin-Courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-Lessons.aspx.cs">
+      <DependentUpon>Admin-Lessons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Lessons.aspx.designer.cs">
+      <DependentUpon>Admin-Lessons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-DeleteCourse.aspx.cs">
+      <DependentUpon>Admin-DeleteCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-DeleteCourse.aspx.designer.cs">
+      <DependentUpon>Admin-DeleteCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-AddCourse.aspx.cs">
+      <DependentUpon>Admin-AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-AddCourse.aspx.designer.cs">
+      <DependentUpon>Admin-AddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-EditCourse.aspx.cs">
+      <DependentUpon>Admin-EditCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-EditCourse.aspx.designer.cs">
+      <DependentUpon>Admin-EditCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-EditLesson.aspx.cs">
+      <DependentUpon>Admin-EditLesson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-EditLesson.aspx.designer.cs">
+      <DependentUpon>Admin-EditLesson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-AddLesson.aspx.cs">
+      <DependentUpon>Admin-AddLesson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-AddLesson.aspx.designer.cs">
+      <DependentUpon>Admin-AddLesson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-DeleteLesson.aspx.cs">
+      <DependentUpon>Admin-DeleteLesson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-DeleteLesson.aspx.designer.cs">
+      <DependentUpon>Admin-DeleteLesson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student-MyClassroom.aspx.cs">
+      <DependentUpon>Student-MyClassroom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student-MyClassroom.aspx.designer.cs">
+      <DependentUpon>Student-MyClassroom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-Enrollments.aspx.cs">
+      <DependentUpon>Admin-Enrollments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Enrollments.aspx.designer.cs">
+      <DependentUpon>Admin-Enrollments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student-MyCourses.aspx.cs">
+      <DependentUpon>Student-MyCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student-MyCourses.aspx.designer.cs">
+      <DependentUpon>Student-MyCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin-AllCourses.aspx.cs">
+      <DependentUpon>Admin-AllCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-AllCourses.aspx.designer.cs">
+      <DependentUpon>Admin-AllCourses.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\vendor\summernoted41d.eot" />
+    <Content Include="assets\vendor\summernotef534.eot" />
+    <Content Include="assets\vendor\summernotef534.ttf" />
+    <Content Include="assets\vendor\summernotef534.woff" />
+    <Content Include="Default.Master" />
+    <Content Include="Admin.Master" />
+    <None Include="packages.config" />
+    <Content Include="Template.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Student\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>myreport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allcourse.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>allcourse.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="trns.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>trns.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65269</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64770/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,2 @@
+﻿SELECT count(distinct s.id)- count(distinct ss.sid) as NotEnrolled , count(distinct ss.sid) as Enrolled FROM [Student] as s left join [Study] as ss on s.id=ss.sid
+select FORMAT( start_datetime, 'MMMM') as month ,count(*) as ct from "Study"  where DATEPART(  YYYY ,start_datetime)=2018 group by  FORMAT( start_datetime, 'MMMM')
